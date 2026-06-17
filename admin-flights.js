@@ -1,0 +1,305 @@
+
+let flights = [
+    {
+        flightId: "PR101",
+        airline: "Philippine Airlines",
+        route: "MNL - JFK",
+        departure: "08:00",
+        arrival: "16:00",
+        seats: 35,
+        status: "Active"
+    },
+    {
+        flightId: "5J205",
+        airline: "Cebu Pacific",
+        route: "MNL - TKO",
+        departure: "09:00",
+        arrival: "17:00",
+        seats: 35,
+        status: "Delayed"
+    },
+    {
+        flightId: "AK555",
+        airline: "AirAsia",
+        route: "MNL - HKG",
+        departure: "10:00",
+        arrival: "08:00",
+        seats: 35,
+        status: "Active"
+    }
+];
+
+let currentPage = 1;
+let rowsPerPage = 5;
+let selectedFlightIndex = -1;
+let filteredFlights = [...flights];
+let editMode = false;
+
+function updateStatistics(){
+    $("#totalFlights").text(flights.length);
+    $("#activeFlights").text(flights.filter(flight => flight.status === "Active").length);
+    $("#delayedFlights").text(flights.filter(flight => flight.status === "Delayed").length);
+    $("#cancelledFlights").text(flights.filter(flight => flight.status === "Cancelled").length);
+}
+
+function renderFlights(data) {
+
+    let startIndex = (currentPage - 1) * rowsPerPage;
+    let endIndex = startIndex + rowsPerPage;
+
+    let paginatedData =
+        data.slice(startIndex, endIndex);
+
+    let html = "";
+
+    paginatedData.forEach((flight, index) => {
+
+        let actualIndex = startIndex + index;
+
+        let rowClass = "";
+
+        if (actualIndex === selectedFlightIndex) {
+            rowClass = "selected-row";
+        }
+
+        html += `
+            <tr
+                class="flight-row ${rowClass}"
+                data-index="${actualIndex}">
+                <td>${flight.flightId}</td>
+                <td>${flight.airline}</td>
+                <td>${flight.route}</td>
+                <td>${flight.departure}</td>
+                <td>${flight.arrival}</td>
+                <td>${flight.seats}</td>
+                <td>${flight.status}</td>
+            </tr>
+        `;
+    });
+
+    $("#flightsTableBody").html(html);
+
+    updatePagination(data.length);
+}
+
+function applyFilters(){
+    let searchValue = $("#searchFlight").val().toLowerCase();
+    let airlineFilter = $("#airlineFilter").val();
+    let statusFilter = $("#statusFilter").val();
+    let sortOption = $("#sortFlights").val();
+    currentPage = 1;
+
+    filteredFlights = flights.filter(flight => {
+
+        let matchesSearch = flight.flightId.toLowerCase().includes(searchValue) || flight.airline.toLowerCase().includes(searchValue);
+
+        let matchesAirline = airlineFilter === "ALL" || flight.airline === airlineFilter;
+
+        let matchesStatus = statusFilter === "ALL" || flight.status === statusFilter;
+
+        return matchesSearch && matchesAirline && matchesStatus;
+    });
+
+    filteredFlights.sort((a, b) => {
+        if(sortOption === "flightId"){
+            return a.flightId.localeCompare(b.flightId);
+        }
+
+        if(sortOption === "airline"){
+            return a.airline.localeCompare(b.airline);
+        }
+
+        if(sortOption === "status"){
+            return a.status.localeCompare(b.status);
+        }
+
+        return 0;
+    });
+
+    selectedFlightIndex = -1;
+    $("#editBtn").prop("disabled", true);
+    $("#deleteBtn").prop("disabled", true);
+
+    $("#selectedFlightLabel").text("No flight selected");
+
+    renderFlights(filteredFlights);
+
+}
+
+ function updatePagination(totalRows){
+    let totalPages = Math.ceil(totalRows / rowsPerPage);
+
+    if(totalPages === 0){
+        totalPages = 1;
+    }
+
+    $("#currentPage").text(currentPage);
+
+    let start = ((currentPage - 1) * rowsPerPage) + 1;
+    let end = Math.min(currentPage * rowsPerPage, totalRows);
+
+    if(totalRows === 0){
+        start = 0;
+        end = 0;
+    }
+
+    $("#paginationInfo").text(
+        `Showing ${start} to ${end} of ${totalRows} flighs`
+    );
+
+    $("#previousPage").prop(
+        "disabled",
+        currentPage === 1
+    );
+
+    $("#nextPage").prop(
+        "disabled",
+        currentPage === totalPages
+     );
+}
+
+$(document).ready(function() {
+
+    updateStatistics();
+    renderFlights(filteredFlights);
+
+    $("#searchFlight").on("keyup", applyFilters);
+    $("#airlineFilter").on("change", applyFilters);
+    $("#statusFilter").on("change", applyFilters);
+    $("#sortFlights").on("change", applyFilters);
+
+    $(document).on("click", ".flight-row", function() {
+
+        $(".flight-row").removeClass("selected-row");
+        $(this).addClass("selected-row");
+
+        selectedFlightIndex = parseInt($(this).attr("data-index"));
+
+        $("#editBtn").prop("disabled", false);
+        $("#deleteBtn").prop("disabled", false);
+
+        $("#selectedFlightLabel").text(
+            "Selected: " + filteredFlights[selectedFlightIndex].flightId
+        );
+    });
+
+    $("#addBtn").click(function () {
+
+        editMode = false;
+
+        $("#modalTitle").text("Add Flight");
+
+        $("#flightId").val("");
+        $("#airline").val("");
+        $("#route").val("");
+        $("#departure").val("");
+        $("#arrival").val("");
+        $("#seats").val("");
+        $("#status").val("");
+    });
+
+    $("#editBtn").click(function() {
+
+        if(selectedFlightIndex < 0){ return; }
+
+        editMode = true;
+
+        let flight = filteredFlights[selectedFlightIndex];
+
+        $("#modalTitle").text("Edit Flight");
+
+        $("#flightId").val(flight.flightId);
+        $("#airline").val(flight.airline);
+        $("#route").val(flight.route);
+        $("#departure").val(flight.departure);
+        $("#arrival").val(flight.arrival);
+        $("#seats").val(flight.seats);
+        $("#status").val(flight.status);
+
+        let modal = new bootstrap.Modal(
+            document.getElementById("flightModal")
+        );
+
+        modal.show();
+    });
+
+    $("#saveFlight").click(function () {
+
+        let flightData = {
+            flightId: $("#flightId").val(),
+            airline: $("#airline").val(),
+            route: $("#route").val(),
+            departure: $("#departure").val(),
+            arrival: $("#arrival").val(),
+            seats: $("#seats").val(),
+            status: $("#status").val()
+        }
+
+        if(!editMode){
+            flights.push(flightData);
+        } else {
+            let selectedFlight = filteredFlights[selectedFlightIndex];
+
+            let originalIndex = flights.findIndex(
+                flight => flight.flightId === selectedFlight.flightId
+            );
+            flights[originalIndex] = flightData;
+        }
+
+        updateStatistics();
+        applyFilters();
+
+        bootstrap.Modal
+            .getInstance(
+                document.getElementById("flightModal")
+            )
+            .hide();
+        
+    });
+
+    $("#deleteBtn").click(function() {
+        if(selectedFlightIndex < 0){ return; }
+
+        let modal = new bootstrap.Modal(
+            document.getElementById("deleteModal")
+        );
+
+        modal.show();
+    })
+
+    $("#confirmDelete").click(function () {
+
+        let selectedFlight = filteredFlights[selectedFlightIndex];
+        let originalIndex = flights.findIndex(
+            flight => flight.flightId === selectedFlight.flightId
+        );
+
+        flights.splice(originalIndex, 1);
+
+        updateStatistics();
+        applyFilters();
+
+        bootstrap.Modal
+            .getInstance(
+                document.getElementById("deleteModal")
+            )
+            .hide();
+    });
+
+    $("#previousPage").click(function () {
+        if(currentPage > 1){
+            currentPage--;
+
+            renderFlights(filteredFlights);
+        }
+    });
+
+    $("#nextPage").click(function () {
+        let totalPages = Math.ceil(filteredFlights.length / rowsPerPage);
+
+        if(currentPage < totalPages){
+            currentPage++;
+            renderFlights(filteredFlights);
+        }
+    });
+});

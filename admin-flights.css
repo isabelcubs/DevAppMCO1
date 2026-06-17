@@ -1,0 +1,54 @@
+.page-heading{
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+.flight-controls{
+    background:#d9d9d9;
+    padding:20px;
+}
+
+.table-container{
+    background:#d9d9d9;
+    padding:20px;
+}
+
+.stat-card{
+    background:#d9d9d9;
+
+    height:120px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.status-active{
+    color:green;
+    font-weight:bold;
+}
+
+.status-delayed{
+    color:orange;
+    font-weight:bold;
+}
+
+.status-cancelled{
+    color:red;
+    font-weight:bold;
+}
+
+.selected-row{
+    background-color: #cfe2ff !important;
+}
+
+.crud-toolbar{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.table-hover tbody tr{
+    cursor: pointer;
+}

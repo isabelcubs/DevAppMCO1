@@ -292,6 +292,116 @@ body {
     flex: 1;
 }
 
+/* Edit Form Styles */
+.edit-form-section {
+    margin-bottom: 24px;
+}
+
+.edit-form-section h6 {
+    font-weight: 700;
+    color: #1e293b;
+    border-left: 3px solid #5686c9;
+    padding-left: 12px;
+    margin-bottom: 16px;
+}
+
+.edit-form-section .form-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    color: #475569;
+}
+
+.edit-form-section .form-control,
+.edit-form-section .form-select {
+    border-radius: 12px;
+    border: 1.5px solid #e2e8f0;
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+}
+
+.edit-form-section .form-control:focus,
+.edit-form-section .form-select:focus {
+    border-color: #5686c9;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(86, 134, 201, 0.12);
+}
+
+.meal-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.meal-option:hover {
+    border-color: #5686c9;
+}
+
+.meal-option.selected {
+    border-color: #5686c9;
+    background: #f0f7ff;
+}
+
+.meal-option input[type="radio"] {
+    accent-color: #5686c9;
+    width: 18px;
+    height: 18px;
+}
+
+.meal-option .meal-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.meal-option .meal-desc {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.summary-box {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.summary-box .summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #e9edf2;
+}
+
+.summary-box .summary-row:last-child {
+    border-bottom: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1e293b;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+    accent-color: #5686c9;
+    width: 16px;
+    height: 16px;
+}
+
 /* Footer */
 footer {
     background: #1e293b;
@@ -331,5 +441,14 @@ footer {
     .modal-detail-row .label {
         width: 100%;
         margin-bottom: 2px;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .meal-option {
+        flex-wrap: wrap;
     }
 }

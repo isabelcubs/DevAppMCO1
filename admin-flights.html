@@ -157,8 +157,10 @@
                                                 <th>Flight ID</th>
                                                 <th>Airline</th>
                                                 <th>Route</th>
-                                                <th>Departure</th>
-                                                <th>Arrival</th>
+                                                <th>Departure Date</th>
+                                                <th>Departure Time</th>
+                                                <th>Arrival Date</th>
+                                                <th>Arrival Time</th>
                                                 <th>Seats</th>
                                                 <th>Status</th>
                                             </tr>
@@ -208,30 +210,37 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">Flight ID</label>
                                                     <input type="text" class="form-control" id="flightId">
+                                                    <div class="text-danger small" id="flightIdError"></div>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label class="form-label">Airline</label>
                                                     <input type="text" class="form-control" id="airline">
+                                                    <div class="text-danger small" id="airlineError"></div>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label class="form-label">Route</label>
                                                     <input type="text" class="form-control" id="route" placeholder="MNL - LAX">
+                                                    <div class="text-danger small" id="routeError"></div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label class="form-label">Departure Time</label>
+                                                            <input type="date" class="form-control" id="departureDate">
                                                             <input type="time" class="form-control" id="departure">
+                                                            <div class="text-danger small" id="DepartureError"></div>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label class="form-label">Arrival Time</label>
+                                                            <input type="date" class="form-control" id="arrivalDate">
                                                             <input type="time" class="form-control" id="arrival">
+                                                            <div class="text-danger small" id="arrivalError"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -239,6 +248,7 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">Available Seats</label>
                                                     <input type="number" class="form-control" id="seats">
+                                                    <div class="text-danger small" id="seatsError"></div>
                                                 </div>
 
                                                 <div class="mb-3">

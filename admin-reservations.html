@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href="admin-users-reservations.css">
+</head>
+
+<body>
+
+<!--SIDEBAR-->
+
+<div class="sidebar" id="sidebar">
+    <nav class="sidebar-nav">
+
+        <!--Dashboard Section-->
+        <div class="nav-section-title">Dashboard</div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link-FlightAnalytics" href="admin-dashboard.html">Dashboard</a>
+            </li>
+        </ul>
+
+        <!--Manage Section-->
+
+        <div class="nav-section-title">Manage</div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link-Flights" href="#">Flights</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link-Users" href="#">Users</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link-Reservations" href="#">Reservations</a>
+            </li>
+        </ul>
+
+        <!--Analytics Section-->
+        <div class="nav-section-title">Analytics</div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link-FlightAnalytics" href="#">Analytics</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<!--Main-->
+<div class="Admin-panel-reservations-main" id="adminReservationsMain">
+
+    <!--Top Bar-->
+    <div class="Admin-panel-reservations-top-bar">
+        <div class="top-bar-left">
+            <button class="toggle-sidebar-btn" id="sidebarButtones">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!--insert admin pfp w/ dropdown for logout-->
+
+        </div>
+
+        <div class="top-bar-right">
+            <h1>Admin Panel - Reservations</h1>
+            <i class="fas fa-plane-departure me-2"></i>
+        </div>
+    </div>
+
+    <h1>Reservations</h1>
+
+    <!--Content-->
+    <div class="Admin-panel-reservations-content">
+        <div class="reservation-cards">
+            <!--insert cards for total reservation and cancelled-->
+        </div>
+
+        <div class="reservations-table">
+            <div class="table-header">
+                <!--Search and Filter Options-->
+                <!--sort by thing-->
+            </div>
+
+            <!--rest of the table shenanigans-->
+
+            <div class="table-footer">
+                <!--insert table footer for pagination-->
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -4,7 +4,7 @@ let flights = [
         flightId: "PR101",
         airline: "Philippine Airlines",
         route: "MNL - JFK",
-        departureDate: "May 27, 2026"
+        departureDate: "May 27, 2026",
         departureTime: "08:00",
         arrivalDate: "May 28, 2026",
         arrivalTime: "16:00",
@@ -15,8 +15,10 @@ let flights = [
         flightId: "5J205",
         airline: "Cebu Pacific",
         route: "MNL - TKO",
-        departure: "09:00",
-        arrival: "17:00",
+        departureDate: "May 27, 2026",
+        departureTime: "09:00",
+        arrivalDate: "May 27, 2026",
+        arrivalTime: "17:00",
         seats: 35,
         status: "Delayed"
     },
@@ -24,8 +26,10 @@ let flights = [
         flightId: "AK555",
         airline: "AirAsia",
         route: "MNL - HKG",
-        departure: "10:00",
-        arrival: "08:00",
+        departureDate: "May 28, 2026",
+        departureTime: "10:00",
+        arrivalDate: "May 29, 2026",
+        arrivalTime: "08:00",
         seats: 35,
         status: "Active"
     }

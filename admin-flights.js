@@ -4,8 +4,10 @@ let flights = [
         flightId: "PR101",
         airline: "Philippine Airlines",
         route: "MNL - JFK",
-        departure: "08:00",
-        arrival: "16:00",
+        departureDate: "May 27, 2026"
+        departureTime: "08:00",
+        arrivalDate: "May 28, 2026",
+        arrivalTime: "16:00",
         seats: 35,
         status: "Active"
     },
@@ -69,8 +71,10 @@ function renderFlights(data) {
                 <td>${flight.flightId}</td>
                 <td>${flight.airline}</td>
                 <td>${flight.route}</td>
-                <td>${flight.departure}</td>
-                <td>${flight.arrival}</td>
+                <td>${flight.departureDate)</td>
+                <td>${flight.departureTime)</td>
+                <td>${flight.arrivalDate}</td>
+                <td>${flight.arrivalTime}</td>
                 <td>${flight.seats}</td>
                 <td>${flight.status}</td>
             </tr>
@@ -192,8 +196,10 @@ $(document).ready(function() {
         $("#flightId").val("");
         $("#airline").val("");
         $("#route").val("");
-        $("#departure").val("");
-        $("#arrival").val("");
+        $("#departureDate").val("");
+        $("#departureTime").val("");
+        $("#arrivalDate").val("");
+        $("#arrivalTime").val("");
         $("#seats").val("");
         $("#status").val("");
     });
@@ -211,8 +217,10 @@ $(document).ready(function() {
         $("#flightId").val(flight.flightId);
         $("#airline").val(flight.airline);
         $("#route").val(flight.route);
-        $("#departure").val(flight.departure);
-        $("#arrival").val(flight.arrival);
+        $("#departureDate").val(flight.departureDate);
+        $("#departureTime").val(flight.departureTime);
+        $("#arrivalDate").val(flight.arrivalDate);
+        $("#arrivalTime").val(flight.arrivalTime);
         $("#seats").val(flight.seats);
         $("#status").val(flight.status);
 
@@ -229,8 +237,10 @@ $(document).ready(function() {
             flightId: $("#flightId").val(),
             airline: $("#airline").val(),
             route: $("#route").val(),
-            departure: $("#departure").val(),
-            arrival: $("#arrival").val(),
+            departureDate: $("#departureDate").val(),
+            departureTime: $("#departureTime").val(),
+            arrivalDate: $("#arrivalDate").val(),
+            arrivalTime: $("#arrivalTime").val(),
             seats: $("#seats").val(),
             status: $("#status").val()
         }

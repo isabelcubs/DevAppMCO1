@@ -75,8 +75,8 @@ function renderFlights(data) {
                 <td>${flight.flightId}</td>
                 <td>${flight.airline}</td>
                 <td>${flight.route}</td>
-                <td>${flight.departureDate)</td>
-                <td>${flight.departureTime)</td>
+                <td>${flight.departureDate}</td>
+                <td>${flight.departureTime}</td>
                 <td>${flight.arrivalDate}</td>
                 <td>${flight.arrivalTime}</td>
                 <td>${flight.seats}</td>

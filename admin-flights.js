@@ -166,6 +166,54 @@ function applyFilters(){
      );
 }
 
+function validateFlightForm() {
+    let valid = true;
+
+    $(".text-danger").text("");
+
+    let flightId = $("#flightId").val().trim();
+    let airline = $("#flightId").val().trim();
+    let route = $("#flightId").val().trim();
+    let departureDate = $("#flightId").val();
+    let departureTime = $("#flightId").val();
+    let arrivalDate = $("#arrivalDate").val();
+    let arrivalTime = $("#arrivalTime").val();
+    let seat = $("#seats").val();
+    let status = $("#status").val();
+
+    if (flightId === ""){
+        "Flight ID is required.";
+        valid = false;
+    }
+    if (airline === ""){
+        "Airline name is required.";
+        valid = false;
+    }
+    if (route === ""){
+        "Flight route is required.";
+        valid = false;
+    }
+    if (departureDate === "" || departureTime === "") {
+        "Departure time is required.";
+        valid = false;
+    }
+    if (arrivalDate === "" || arrivalTime == "") {
+        "Arrival time is required.";
+        valid = false;
+    }
+    if (seats === "" || seats === 0){
+        "Seats should be more than 1.";
+        valid = false;
+    }
+    if (status === "") {
+        "Flight status is required.";
+        valid = false;
+    }
+
+    return valid;
+                     
+}
+
 $(document).ready(function() {
 
     updateStatistics();

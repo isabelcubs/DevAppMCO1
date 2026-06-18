@@ -38,10 +38,10 @@
 
                 <div class="collapse navbar-collapse" id="mainMenu">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li> <!--- will edit -->
-                        <li class="nav-item"><a class="nav-link active" href="#">Search Flights</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">My Reservation</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">User Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li> <!--- will edit -->
+                        <li class="nav-item"><a class="nav-link active" href="search.html">Search Flights</a></li>
+                        <li class="nav-item"><a class="nav-link" href="reservation.html">My Reservation</a></li>
+                        <li class="nav-item"><a class="nav-link" href="profile.html">User Profile</a></li>
                     </ul>
                 </div>
 
@@ -293,7 +293,8 @@
                         <!-- Results Panel (RIGHT COLUMN) -->
                         <div class="col-lg-9">
 
-                            <label class="form-label small">Showing ## Flights</label>
+                            <label class="form-label small">Showing # Flights</label>
+
                             <select class="form-select mb-3">
                                 <option>Price ↑</option>
                                 <option>Price ↓</option>
@@ -303,75 +304,10 @@
                                 <option>Durations ↓</option>
                             </select>
 
-                            <div class="card shadow border-0 p-3 mb-3">
 
-                                <div class="row align-items-center mx-2">
+                            
 
-                                    <div class="col-md-12 mb-3 ">
-                                        <img class="airline_logo" src="https://files01.pna.gov.ph/category-list/2025/09/03/pal.jpeg" alt="Philippine Airlines">
-                                        <strong>Flight Number</strong>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="form-label">Departure Time: ---</label>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="form-label">Arrival Time: ---</label>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="form-label">Flight Duration: ---</label>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="form-label">Number of Layovers: ---</label>
-                                    </div>
-                                    
-                                    <div class="col-md-12">
-                                        <label class="form-label">Remaining Seat Count: ---</label>
-                                    </div>
-                                    
-                                    <div class="col-md-12">
-                                        <label class="form-label">Php Ticket Price ---</label>
-                                    </div>
-
-                                    <div class="collapse mt-3" id="viewDetails">
-                                        <hr>
-                                        <h5>Flight Details</h5>
-
-                                        <label class="form-label">Baggage:</label>
-                                        <ul class="form-label">
-                                            <li>20kg Checked-in</li>
-                                            <li>7kg Carry-On</li>
-                                        </ul>
-
-                                        <label class="form-label">Fare Rules:</label>
-                                        <ul class="form-label">
-                                            <li>Free Rebooking</li>
-                                        </ul>
-
-                                        <label class="form-label">Layover Information:</label>
-                                        <ul class="form-label">
-                                            <li>N/A</li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <button class="btn btn-success w-100 mt-4" href="booking.html">
-                                            Book Flight
-                                        </button>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <button class="btn btn-success w-100 mt-4" data-bs-toggle="collapse" href="#viewDetails">
-                                            View Details
-                                        </button>
-
-                                    </div>
-
-                                </div>
-
+                            <div id="flightResults"></div>
                             </div>
 
                         </div>

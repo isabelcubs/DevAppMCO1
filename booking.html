@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search Flights</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Bootstrap Font & Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+        <link rel="stylesheet" href="search_book.css">
+
+    </head>
+    
+    <body>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+            <div class="container">
+
+                <a class="navbar-brand" href="#">
+                    <i class="fas fa-plane-departure me-2"></i>
+                    Animo Skies
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainMenu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li> <!--- will edit -->
+                        <li class="nav-item"><a class="nav-link" href="#">Search Flights</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">My Reservation</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">User Profile</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container my-4">
+
+            <!-- Flight Header -->
+            <div class="card shadow-sm border-0 p-4 mb-4">
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-3">
+                        <strong>MNL → CEB</strong>
+                    </div>
+
+                    <div class="col-md-3">
+                        Flight: PR123
+                    </div>
+
+                    <div class="col-md-3">
+                        Departure: 08:00 AM
+                    </div>
+
+                    <div class="col-md-3">
+                        Economy
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Steps -->
+            <div class="card shadow-sm border-0 p-3 mb-4">
+                Passenger Details → Meal & Extras → Review & Confirm
+            </div>
+
+            <div class="row g-4">
+
+                <!-- LEFT PANEL -->
+                <div class="col-lg-8">
+
+                    <!-- Traveler Information -->
+                    <div class="card shadow-sm border-0 p-4 mb-4">
+
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4>Traveler Information</h4>
+
+                            <button
+                                type="button"
+                                id="addPassenger"
+                                class="btn btn-outline-primary btn-sm">
+                                + Add Passenger
+                            </button>
+                        </div>
+
+                        <div id="passengerContainer">
+
+                            <!-- Passenger 1 -->
+                            <div class="card border p-3 mb-3 passenger-card">
+
+                                <h5>Passenger 1</h5>
+
+                                <div class="row g-3">
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Full Name</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Email Address</label>
+                                        <input type="email" class="form-control">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Contact Number</label>
+                                        <input type="tel" class="form-control">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Passport Number</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="form-label">Nationality</label>
+                                        <select class="form-select">
+                                            <option>Filipino</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="form-label">Date of Birth</label>
+                                        <input type="date" class="form-control">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="form-label">Gender</label>
+                                        <select class="form-select">
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Emergency Contact -->
+                    <div class="card shadow-sm border-0 p-4 mb-4">
+                        <h4>Emergency Contact</h4>
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Relationship</label>
+                                <input type="text" class="form-control">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Contact Number</label>
+                                <input type="tel" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seat Selection -->
+                    <div class="card shadow-sm border-0 p-4 mb-4">
+                        <h4>Seat Selection</h4>
+                        
+                        <div class="seat-map">
+
+                            <button class="seat available">A1</button>
+                            <button class="seat occupied">A2</button>
+                            <p>will continue when i understand jquery better</p>
+
+                        </div>
+                    </div>
+                    
+
+                    <!-- Meal Preference -->
+                    <div class="card shadow-sm border-0 p-4 mb-4">
+
+                        <h4 class="mb-4">Meal Preference</h4>
+
+                        <div class="row g-3">
+
+                            <!-- Meal Card -->
+                            <div class="col-md-4">
+
+                                <div class="card meal-card h-100">
+
+                                    <div class="card-body">
+
+                                        <h5>Standard</h5>
+
+                                        <p class="text-muted">
+                                            Classic in-flight meal: Chicken or Pasta with Salad.
+                                        </p>
+
+                                        <p class="meal_price">Included</p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Meal Card -->
+                            <div class="col-md-4">
+
+                                <div class="card meal-card h-100">
+
+                                    <div class="card-body">
+
+                                        <h5>Vegetarian</h5>
+
+                                        <p class="text-muted">
+                                            Fresh stir-fry vegetables with quinoa & green salad.
+                                        </p>
+
+                                        <p class="meal_price">+ ₱500</p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Meal Card -->
+                            <div class="col-md-4">
+
+                                <div class="card meal-card h-100">
+
+                                    <div class="card-body">
+
+                                        <h5>Vegan</h5>
+
+                                        <p class="text-muted">
+                                            Plant-based protein bowl, roasted veggies, dairy-free.
+                                        </p>
+
+                                        <p class="meal_price">+ ₱700</p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Meal Card -->
+                            <div class="col-md-4">
+
+                                <div class="card meal-card h-100">
+
+                                    <div class="card-body">
+
+                                        <h5>Halal</h5>
+
+                                        <p class="text-muted">
+                                            Certified Halal chicken with saffron rice
+                                        </p>
+
+                                        <p class="meal_price">+ ₱1000</p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Meal Card -->
+                            <div class="col-md-4">
+
+                                <div class="card meal-card h-100">
+
+                                    <div class="card-body">
+
+                                        <h5>Kosher</h5>
+
+                                        <p class="text-muted">
+                                            Glatt Kosher meal, pre-packaged under supervision.
+                                        </p>
+
+                                        <p class="meal_price">+ ₱1200</p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Meal Card -->
+                            <div class="col-md-4">
+
+                                <div class="card meal-card h-100">
+
+                                    <div class="card-body">
+
+                                        <h5>Gluten Free</h5>
+
+                                        <p class="text-muted">
+                                            Gluten-free pasta, fresh vegetables, GF dessert.
+                                        </p>
+
+                                        <p class="meal_price">+ ₱1500</p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Extra Services -->
+                    <div class="card shadow-sm border-0 p-4">
+                        <h4>Extra Services</h4>
+
+                        <label class="form-check-label">Checked-in (+₱550)</label>
+
+                        <div class="input-group">
+                            <input type="number" class="form-control text-center" id="counter-input" value="1" min="0" max="100" step="1">
+                        </div>
+
+                        <br>
+                        <label class="form-check-label">Carry-On (+₱950)</label>
+
+                        <div class="input-group">
+                            <input type="number" class="form-control text-center" id="counter-input" value="1" min="0" max="100" step="1">
+                        </div>
+
+                        <hr>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">
+                                Priority Boarding (+₱500)
+                            </label>
+                        </div>
+
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">
+                                Travel Insurance (+₱1500)
+                            </label>
+                        </div>
+
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">
+                                Lounge Access (+₱1000)
+                            </label>
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+                <!-- RIGHT PANEL -->
+                <div class="col-lg-4">
+
+                    <div class="card shadow-sm border-0 p-4 sticky-top">
+
+                        <h4>Booking Summary</h4>
+
+                        <hr>
+
+                        <h5>Flight Details</h5>
+
+                        <label class="">Passenger Count</label>
+
+                        Seat Selection
+
+                        Meal Package
+
+                        Extra Services
+
+                        Taxes & Fees
+
+                        Grand Total
+
+                        <button class="btn btn-success w-100 mt-4">
+                            Confirm Booking
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Bootsrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- JQUERY -->
+         <script>
+
+            // If [add passenger] is clicked, another passenger card is created
+            let passengerCount = 1;
+
+            $("#addPassenger").click(function(){
+
+                passengerCount++;
+
+                $("#passengerContainer").append(`
+                    <div class="card border p-3 mb-3 passenger-card">
+
+                        <h5>Passenger ${passengerCount}</h5>
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Contact Number</label>
+                                <input type="tel" class="form-control">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Passport Number</label>
+                                <input type="text" class="form-control">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">Nationality</label>
+                                <select class="form-select">
+                                    <option>Filipino</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">Date of Birth</label>
+                                <input type="date" class="form-control">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">Gender</label>
+                                <select class="form-select">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                `);
+
+            });
+
+            // If a meal card is clicked, it's either selected or removed
+            $(".meal-card").click(function(){
+
+                $(".meal-card").removeClass("selected");
+
+                $(this).addClass("selected");
+
+            });
+
+         </script>
+
+    </body>
+
+</html>

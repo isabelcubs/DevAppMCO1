@@ -285,6 +285,10 @@ $(document).ready(function() {
 
     $("#saveFlight").click(function () {
 
+        if(!validateFlightForm()){
+            return;
+        }
+
         let flightData = {
             flightId: $("#flightId").val(),
             airline: $("#airline").val(),

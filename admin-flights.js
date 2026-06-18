@@ -152,7 +152,7 @@ function applyFilters(){
     }
 
     $("#paginationInfo").text(
-        `Showing ${start} to ${end} of ${totalRows} flighs`
+        `Showing ${start} to ${end} of ${totalRows} flights`
     );
 
     $("#previousPage").prop(

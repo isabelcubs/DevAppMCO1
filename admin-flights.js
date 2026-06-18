@@ -210,6 +210,34 @@ function validateFlightForm() {
         valid = false;
     }
 
+    //for flight ID dupes
+    let duplicate = flights.some(function(flight) {
+        return flight.flightId === flightId;
+    });
+
+    if(!editMode && duplicate) {
+        $("#flightIdError").text("Flight ID already exists.");
+        valid = false;
+    }
+
+    //route format validation //will fix later
+    if(!route.includes("-")){
+        $("#routeError").text("Route format should be origin - destination (ex. MNL - LAX).");
+        valid = false;
+    } else {
+        valid = true;
+    }
+
+    if(!(departureDate > arrivalDate)){
+        if(departureTime >= arrivalTime){
+            $("#arrivalError").text("Arrival time should be after departure date if arrrival date is at the same day.");
+            valid = false;
+        }
+    } else {
+        $("#arrivalError").text("Arrival time should be the same day or after departure date.");
+        valid = false;
+    }
+
     return valid;
                      
 }

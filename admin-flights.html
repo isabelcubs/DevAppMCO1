@@ -209,19 +209,19 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <label class="form-label">Flight ID</label>
-                                                    <input type="text" class="form-control" id="flightId">
+                                                    <input type="text" class="form-control" id="flightId" required>
                                                     <div class="text-danger small" id="flightIdError"></div>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label class="form-label">Airline</label>
-                                                    <input type="text" class="form-control" id="airline">
+                                                    <input type="text" class="form-control" id="airline" required>
                                                     <div class="text-danger small" id="airlineError"></div>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label class="form-label">Route</label>
-                                                    <input type="text" class="form-control" id="route" placeholder="MNL - LAX">
+                                                    <input type="text" class="form-control" id="route" placeholder="MNL - LAX" required>
                                                     <div class="text-danger small" id="routeError"></div>
                                                 </div>
 
@@ -229,8 +229,8 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label class="form-label">Departure Time</label>
-                                                            <input type="date" class="form-control" id="departureDate">
-                                                            <input type="time" class="form-control" id="departureTime">
+                                                            <input type="date" class="form-control" id="departureDate" required>
+                                                            <input type="time" class="form-control" id="departureTime" required>
                                                             <div class="text-danger small" id="DepartureError"></div>
                                                         </div>
                                                     </div>
@@ -238,8 +238,8 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label class="form-label">Arrival Time</label>
-                                                            <input type="date" class="form-control" id="arrivalDate">
-                                                            <input type="time" class="form-control" id="arrivalTime">
+                                                            <input type="date" class="form-control" id="arrivalDate" required>
+                                                            <input type="time" class="form-control" id="arrivalTime" required>
                                                             <div class="text-danger small" id="arrivalError"></div>
                                                         </div>
                                                     </div>
@@ -247,13 +247,13 @@
 
                                                 <div class="mb-3">
                                                     <label class="form-label">Available Seats</label>
-                                                    <input type="number" class="form-control" id="seats">
-                                                    <div class="text-danger small" id="seatsError"></div>
+                                                    <input type="number" class="form-control" id="seats" required>
+                                                    <div class="text-danger small" id="seatsError" required></div>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label class="form-label">Status</label>
-                                                    <select class="form-select" id="status">
+                                                    <select class="form-select" id="status" required>
                                                         <option value="Active">Active</option>
                                                         <option value="Delayed">Delayed</option>
                                                         <option value="Cancelled">Cancelled</option>
